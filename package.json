@@ -1,0 +1,31 @@
+{
+  "name": "founderist",
+  "version": "1.0.0",
+  "description": "#### Track Your Job Search",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubhamcpanwar/founderist.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shubhamcpanwar/founderist/issues"
+  },
+  "homepage": "https://github.com/shubhamcpanwar/founderist#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "dotenv": "^11.0.0",
+    "express": "^4.17.2",
+    "express-async-errors": "^3.1.1",
+    "mongoose": "^6.1.6",
+    "validator": "^13.7.0"
+  }
+}
