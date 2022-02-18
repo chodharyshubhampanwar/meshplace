@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import validator from "validator";
 
-const UsersSchema = new mongoose.Schema({
+const UserSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "Please provide name"],
@@ -25,18 +25,18 @@ const UsersSchema = new mongoose.Schema({
   },
   lastName: {
     type: String,
-    required: [true, "Please provide lastname"],
+    required: [false, "Please provide lastname"],
     maxlength: 20,
     unique: true,
     default: "lastname",
   },
   location: {
     type: String,
-    required: [true, "Please provide lastname"],
+    required: [false, "Please provide lastname"],
     maxlength: 20,
     unique: true,
     default: "mycity",
   },
 });
 
-export default mongoose.model("Users", UsersSchema);
+export default mongoose.model("User", UserSchema);
