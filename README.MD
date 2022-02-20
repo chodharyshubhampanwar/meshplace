@@ -1,6 +1,6 @@
 #### This is an open soure project, all contributions welcome.
 
-Project in Action - [Karm](https://www.zealact.com/)
+Project in Action - [Zealact](https://www.zealact.com/)
 
 #### Run The App Locally
 

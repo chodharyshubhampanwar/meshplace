@@ -1,27 +1,29 @@
 import { useState, useEffect } from "react";
-import { Logo, FormRow, Alert } from "../Components";
-
+import { Logo, FormRow, Alert } from "../Components/Index";
 import Wrapper from "../assets/wrappers/LandingPage";
 import { useAppContext } from "../Context/appContext";
+import { useNavigate } from 'react-router-dom'
 
 const initialState = {
   name: "",
   email: "",
   password: "",
-  isMemeber: true,
+  isMember: true,
 };
 
 const Register = () => {
+  const navigate = useNavigate()
   const [values, setValues] = useState(initialState);
-  const { isLoading, showAlert, displayAlert } = useAppContext();
+  const { user, isLoading, showAlert, displayAlert, registerUser,loginUser } = useAppContext();
 
   const toggleMember = () => {
-    setValues({ ...values, isMemeber: !values.isMemeber });
+    setValues({ ...values, isMember: !values.isMember });
   };
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
   };
+
   const onSubmit = (e) => {
     e.preventDefault();
     const { name, email, password, isMember } = values;
@@ -29,8 +31,27 @@ const Register = () => {
       displayAlert();
       return;
     }
-    console.log(values);
+    const currentUser = { name, email, password }
+    if (isMember) {
+      loginUser(currentUser)
+
+    }
+    else {
+      registerUser(currentUser)
+    }
   };
+
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate('/')
+
+      })
+
+    }
+
+  }, [user, navigate]
+  )
 
   return (
     <Wrapper className="full-page">
@@ -39,7 +60,7 @@ const Register = () => {
         <h3>{values.isMember ? "Login" : "Register"}</h3>
         {showAlert && <Alert />}
         {/*name*/}
-        {!values.isMemeber && (
+        {!values.isMember && (
           <FormRow
             type="text"
             name="name"
@@ -63,13 +84,13 @@ const Register = () => {
           handleChange={handleChange}
         />
 
-        <button type="submit" className="btn btn-block">
+        <button type="submit" className="btn btn-block" disabled={isLoading}>
           submit
         </button>
         <p>
-          {values.isMemeber ? "Not a member yet" : "Already a Member?"}
+          {values.isMember ? "Not a member yet" : "Already a Member?"}
           <button type="button" onClick={toggleMember} className="member-btn">
-            {values.isMemeber ? "Register" : "Login"}
+            {values.isMember ? "Register" : "Login"}
           </button>
         </p>
       </form>

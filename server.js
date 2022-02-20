@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
 import 'express-async-errors'
+import morgan from 'morgan';
 
 import connectDB from "./db/connect.js";
 
@@ -18,8 +19,17 @@ const port = 5000;
 
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.send("hello");});
+if (process.env.NODE_ENV !== 'production')
+{
+  
+app.use(morgan('dev'))
+
+}
+
+
+app.get("/api/v1", (req, res) => {
+  res.json({msg :"hello there "})
+});
 
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/jobs", jobsRouter);

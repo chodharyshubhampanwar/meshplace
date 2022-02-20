@@ -1,5 +1,5 @@
 import Wrapper from "../assets/wrappers/LandingPage";
-import { Logo } from "../Components";
+import  Logo  from "../Components/logo";
 
 const Landing = () => {
   return (
