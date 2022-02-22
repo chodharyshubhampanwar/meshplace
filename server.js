@@ -5,7 +5,7 @@ import 'express-async-errors'
 import morgan from 'morgan';
 
 import connectDB from "./db/connect.js";
-
+import auth from "./middleware/auth.js";
 import authRouter from "./router/authRouter.js";
 import jobsRouter from "./router/jobsRouter.js";
 
@@ -32,7 +32,7 @@ app.get("/api/v1", (req, res) => {
 });
 
 app.use("/api/v1/auth", authRouter);
-app.use("/api/v1/jobs", jobsRouter);
+app.use("/api/v1/jobs",auth, jobsRouter);
 
 app.use(notFoundMiddleware);
 app.use(errorHandlerMiddleware);
