@@ -4,7 +4,7 @@ import { UnAuthenticatedError } from '../errors/index.js'
 const auth = async (req, res, next) => {
   const authHeader = req.headers.authorization
   if (!authHeader || !authHeader.startsWith('Bearer')) {
-    throw new UnAuthenticatedError('Authentication Invalid')
+    throw new UnAuthenticatedError('Authentication Invalidx')
   }
   const token = authHeader.split(' ')[1]
   try {
@@ -14,7 +14,7 @@ const auth = async (req, res, next) => {
 
     next()
   } catch (error) {
-    throw new UnAuthenticatedError('Authentication Invalid')
+    throw new UnAuthenticatedError('Authentication Invalids')
   }
 }
 

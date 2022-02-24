@@ -1,4 +1,5 @@
 import Wrapper from "../assets/wrappers/LandingPage";
+import{Link} from 'react-router-dom'
 import  Logo  from "../Components/logo";
 
 const Landing = () => {
@@ -13,9 +14,12 @@ const Landing = () => {
           <div className="info">
             <h1>
               Job <span>Tracking</span>
-              <p>Hello there this is a home page.</p>
             </h1>
-            <button className="btn btn-hero">Login/Register</button>
+            <p>Hello there this is a home page.</p>
+            <Link to='/register' className="btn btn-hero">
+            Login/Register
+            </Link>
+           
           </div>
         </div>
       </main>
