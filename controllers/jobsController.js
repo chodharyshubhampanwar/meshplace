@@ -23,6 +23,14 @@ const getAllJobs = async (req, res) => {
 
 
 const updateJob = async (req, res) => {
+  const{id: jobId} = req.params
+  const {company, position} = req.body
+  if(!position || !company){
+    throw new BadRequestError('please provide all values')
+  }
+
+  const ob = await Job.findOne({_id: jobId})
+
   res.status(200).send("update job");
 };
 const deleteJob = async (req, res) => {

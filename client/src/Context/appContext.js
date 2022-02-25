@@ -10,7 +10,7 @@ import {
   REGISTER_USER_BEGIN, REGISTER_USER_SUCCESS, REGISTER_USER_ERROR,
   LOGIN_USER_BEGIN, LOGIN_USER_SUCCESS, LOGIN_USER_ERROR, TOGGLE_SIDEBAR, LOGOUT_USER, UPDATE_USER_BEGIN,UPDATE_USER_SUCCESS,
   UPDATE_USER_ERROR,HANDLE_CHANGE,
-  CLEAR_VALUES,CREATE_JOB_BEGIN,CREATE_JOB_SUCCESS,CREATE_JOB_ERROR,GET_JOBS_BEGIN,GET_JOBS_SUCCESS
+  CLEAR_VALUES,CREATE_JOB_BEGIN,CREATE_JOB_SUCCESS,CREATE_JOB_ERROR,GET_JOBS_BEGIN,GET_JOBS_SUCCESS,SET_EDIT_JOB
 } from "./actions";
 
 const token = localStorage.getItem('token')
@@ -250,9 +250,28 @@ const getAllJobs = async () => {
   clearAlert()
 }
 
+const setEditJob = (id) => {
+  dispatch({
+    type: SET_EDIT_JOB, 
+    payload: {id}
+  })
+
+}
+  const editJob = () => {
+    console.log('edit job')
+  }
+
+
+
+
+const setDeleteJob = (id) => {
+  console.log(`set delete job: ${id}`)
+
+}
+
   
   return (
-    <AppContext.Provider value={{ ...state, displayAlert, registerUser, loginUser, toggleSidebar, logoutUser, updateUser,handleChange,clearValues,createJob,getAllJobs }}>
+    <AppContext.Provider value={{ ...state, displayAlert, registerUser, loginUser, toggleSidebar, logoutUser, updateUser,handleChange,clearValues,createJob,getAllJobs,setDeleteJob,setEditJob,editJob }}>
       {children}
     </AppContext.Provider>
   );
