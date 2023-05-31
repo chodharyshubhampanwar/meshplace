@@ -2,10 +2,10 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      nodejs: 16
     commands:
       - echo Installing Node.js...
-      - nvm install 16
-      - nvm use 16
       - node -v
       - echo Node.js installed successfully
 
