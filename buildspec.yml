@@ -20,4 +20,17 @@ phases:
       - npm install
       - cd ..
 
-  build: commands
+  build:
+    commands:
+      - echo Build started on server...
+      - cd server
+      - npm run build
+      - cd ..
+      - echo Build started on client...
+      - cd client
+      - npm run build
+      - cd ..
+
+  post_build:
+    commands:
+      - echo Build completed on both server and client.
