@@ -18,14 +18,9 @@ phases:
 
   build:
     commands:
-      - echo Build started on server...
-      - cd server
+      - echo Build started...
       - npm run build
-      - cd ..
-      - echo Build started on client...
-      - cd client
-      - npm run build
-      - cd ..
+      - echo Build completed
 
   post_build:
     commands:
