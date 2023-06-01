@@ -6,7 +6,7 @@ phases:
       - echo Installing source NVM...
       - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
       - export NVM_DIR="$HOME/.nvm"
-      - '[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"'
+      - source "$NVM_DIR/nvm.sh" # Source NVM initialization script
       - nvm install node
       - echo Finished installing NVM
 
@@ -35,3 +35,5 @@ phases:
   post_build:
     commands:
       - echo Build completed on both server and client.
+---
+
