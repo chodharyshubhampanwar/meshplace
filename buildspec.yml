@@ -6,9 +6,10 @@ phases:
       - echo Installing source NVM...
       - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
       - export NVM_DIR="$HOME/.nvm"
-      - source "$NVM_DIR/nvm.sh" # Source NVM initialization script
-      - nvm install node
-      - echo Finished installing NVM
+      - export SH="$HOME/.nvm/nvm.sh"
+      - echo ". \"$SH\"" >> ~/.bashrc
+      - source ~/.bashrc
+      - nvm install --latest-npm --lts
 
   pre_build:
     commands:
