@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     commands:
-      - n 12.18.3
+      - n 16.x
 
   pre_build:
     commands:
