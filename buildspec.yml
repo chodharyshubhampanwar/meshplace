@@ -27,4 +27,4 @@ artifacts:
 
 post_build:
   commands:
-    - echo Build completed on both server and client.
+    - echo Build completed on both server & client.
