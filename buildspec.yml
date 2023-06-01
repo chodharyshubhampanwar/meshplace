@@ -17,9 +17,16 @@ phases:
 
   build:
     commands:
-      - echo Build started...
+      - echo Building server...
+      - npm run build-server
+      - echo Building client...
       - npm run build-client
 
-  post_build:
-    commands:
-      - echo Build completed on both server and client.
+artifacts:
+  files:
+    - "**/*"
+  base-directory: client/build
+
+post_build:
+  commands:
+    - echo Build completed on both server and client.
