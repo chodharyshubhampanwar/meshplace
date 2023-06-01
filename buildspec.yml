@@ -20,11 +20,11 @@ phases:
       - echo Build started...
       - npm run build-client
 
-  artifacts:
+artifacts:
   files:
     - "**/*"
   base-directory: client/build
 
-  post_build:
-    commands:
-      - echo Build completed on both server and client.
+post_build:
+  commands:
+    - echo Build completed on both server and client.
