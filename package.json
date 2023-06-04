@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "start:prod": "node server.js",
+     "build:client": "npm run build --prefix client",
     "server": "nodemon --watch server server --ignore client",
     "client": "npm start --prefix client",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
