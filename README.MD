@@ -1,6 +1,6 @@
 #### This is an open soure project, all contributions welcome.
 
-Project in Action - [Meshplace](https://www.meshplace.com/)
+Project in Action - [Meshplace](https://www.meshplace.in/)
 
 #### Run The App Locally
 
