@@ -3,17 +3,8 @@ version: 0.2
 phases:
   install:
     commands:
-      - curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-      - . ~/.nvm/nvm.sh
-      - nvm install node
       - echo Node.js version
       - node -v
-      - echo NPM version
-      - npm -v
-      - echo Installing source NPM dependencies...
-      - cd client && npm install && cd ..
-      - echo Installing server NPM dependencies...
-      - npm install
   build:
     commands:
       - echo Build started on `date`
