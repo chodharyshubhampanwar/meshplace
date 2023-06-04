@@ -5,6 +5,10 @@ phases:
     commands:
       - echo Node.js version
       - node -v
+      - echo Installing source NPM dependencies...
+      - cd client && npm install && cd ..
+      - echo Installing server NPM dependencies...
+      - npm install
   build:
     commands:
       - echo Build started on `date`
