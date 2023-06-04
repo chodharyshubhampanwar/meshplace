@@ -5,6 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "start:prod": "node server.js",
   "server": "nodemon --watch server server --ignore client",
   "client": "npm start --prefix client",
   "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
