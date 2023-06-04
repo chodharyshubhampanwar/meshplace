@@ -1,6 +1,6 @@
 #### This is an open soure project, all contributions welcome.
 
-Project in Action - [Zealact](https://www.zealact.io/)
+Project in Action - [Zealact](https://www.zealact.com/)
 
 #### Run The App Locally
 
@@ -16,5 +16,3 @@ npm start
 ```
 
 - visit url http://localhost:3000/
-
-
