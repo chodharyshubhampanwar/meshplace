@@ -9,12 +9,13 @@ jobs:
 
     runs-on: self-hosted
 
-    strategy:
-      matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
+    - name: Check Node.js version
+      run: node -v
+
+    - name: Check npm version
+      run: npm -v
+
     - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
@@ -22,6 +23,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: cd client && npm ci
     - run: npm run build:client
     - run: npm run start:prod
+
+
+
