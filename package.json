@@ -6,10 +6,10 @@
   "type": "module",
   "scripts": {
     "start:prod": "node server.js",
-  "server": "nodemon --watch server server --ignore client",
-  "client": "npm start --prefix client",
-  "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
-},
+    "server": "nodemon --watch server server --ignore client",
+    "client": "npm start --prefix client",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\""
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shubhamcpanwar/founderist.git"
@@ -42,7 +42,6 @@
     "validator": "^13.7.0",
     "xss-clean": "^0.1.1"
   },
-
   "engines": {
     "node": "16.x"
   }
