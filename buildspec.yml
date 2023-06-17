@@ -1,4 +1,4 @@
-version: 0.2
+version: 0.3
 
 phases:
   install:
@@ -9,11 +9,17 @@ phases:
       - cd client && npm install && cd ..
       - echo Installing server NPM dependencies...
       - npm install
+
   build:
     commands:
       - echo Build started on `date`
       - echo Compiling the Node.js code...
       - npm run build:client
+
   post_build:
     commands:
       - echo Build completed on `date`
+
+artifacts:
+  files:
+    - '**/*'
