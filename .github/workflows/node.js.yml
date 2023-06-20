@@ -1,3 +1,12 @@
+location /api/ {
+proxy_pass http://localhost:8000/;
+proxy_set_header Host $host; proxy_set_header X-Real-IP $remote_addr;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+}
+
+sudo systemctl restart nginx
+
+
 name: Node.js CI
 
 on:
@@ -22,6 +31,14 @@ jobs:
           cache: "npm"
       - name: Install Backend Dependencies
         run: npm ci
+      - name: Install Client Dependencies
+        working-directory: ./client
+        run: npm install
+      - name: Build React App
+        env:
+          CI: false
+        working-directory: ./client
+        run: npm run build --if-present
       - name: Restart PM2 Server
         run: |
           cd ..
